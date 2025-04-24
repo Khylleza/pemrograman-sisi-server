@@ -1,0 +1,26 @@
+@include('layouts.navigation')
+<x-app-layout>
+    <div class="max-w-4xl p-6 mx-auto">
+        <div class="flex justify-between mb-4">
+            <h2 class="text-2xl font-bold">Daftar Kategori</h2>
+            <a href="{{ route('categories.create') }}" class="px-4 py-2 text-white bg-blue-600 rounded">Tambah</a>
+        </div>
+        <table class="w-full border table-auto">
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="p-2">Nama</th>
+                    <th class="p-2">Deskripsi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($categories as $category)
+                    <tr class="border-t">
+                        <td class="p-2">{{ $category->name }}</td>
+                        <td class="p-2">{{ $category->description }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+</x-app-layout>
