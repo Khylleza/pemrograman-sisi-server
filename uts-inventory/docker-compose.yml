@@ -23,7 +23,7 @@ services:
       - DB_PASSWORD=root
 
   node:
-    image: node:20
+    image: node:22
     container_name: laravel-node
     working_dir: /app
     volumes:
@@ -33,7 +33,7 @@ services:
     command: sh -c "npm install && npm run dev"
 
   mysql:
-    image: mysql:8.0
+    image: mysql:8.2
     container_name: laravel-mysql
     ports:
       - "3306:3306"
