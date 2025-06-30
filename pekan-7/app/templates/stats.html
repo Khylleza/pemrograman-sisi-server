@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>ORM</title>
+    <style>
+      .statistik-container {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        color: #333;
+        max-width: 600px;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+    </style>
+  </head>
+  <body class="statistik-container">
+    <h1>📊 Statistik Course</h1>
+
+    <div>
+      <div>
+        <span>👩‍🏫 Jumlah user yang membuat course:</span>
+        {{ users_with_courses_count }}
+      </div>
+      <div>
+        <span>🙅‍♂️ Jumlah user yang tidak membuat course:</span>
+        {{ users_without_courses_count }}
+      </div>
+      <div>
+        <span>📈 Rata-rata course yang diikuti per user:</span>
+        {{ average_courses_per_user }}
+      </div>
+      <div>
+        <span>🏅 User yang mengikuti course terbanyak:</span>
+        <span>{{ user_most_courses.username }}</span>
+        ({{ user_most_courses.num_courses }} course)
+      </div>
+      <div>
+        <span>🙋‍♂️ User yang tidak mengikuti course sama sekali:</span>
+        <ul>
+          {% for user in users_not_enrolled %}
+          <li>{{ user.username }}</li>
+          {% empty %}
+          <li>Semua user mengikuti course</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
